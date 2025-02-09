@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.sign-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.no-sign-message {
+    font-size: 1.5rem;
+    color: gray;
+    text-align: center;
+}
+
+.sign-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+canvas {
+    border: 2px solid #000;
+    width: 90vw;
+    max-width: 800px;
+    height: 50vh;
+    max-height: 500px;
+    background-color: white;
+    cursor: crosshair;
+    display: block;
+    margin: 10px auto;
+}
+
+#signatureTitle {
+    display: block;
+    margin: 10px auto;
+    width: 66.66vw; /* 사인 칸의 2/3 크기 */
+    max-width: calc(2 / 3 * 800px);
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+#previewContainer {
+    display: none;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#previewImage {
+    display: none;
+    width: 200px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    flex-direction: row;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    width: 150px;
+    padding: 10px 0;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+}
+
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+/* 기존 스타일 유지 */
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.toolbar label {
+    font-size: 16px;
+}
+
+.toolbar input {
+    cursor: pointer;
+}
+
+#penSize {
+    width: 100px;
+}
+
+#undo {
+    background-color: red;
+    color: white;
+    border: 2px solid black;
+}

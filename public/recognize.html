@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사인 업로드</title>
+    <link rel="stylesheet" href="recognize.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Sign</h2>
+        <h3>Before upload,Remove background!</h3>
+
+        <div class="upload-area">
+            <!-- ✅ 제목 입력 칸 (사진 위에 위치) -->
+            <input type="text" id="signatureTitle" placeholder="ex.BTS's sign">
+            
+            <!-- ✅ 업로드된 이미지 표시할 캔버스 -->
+            <canvas id="signatureCanvas"></canvas>
+        </div>
+
+        <input type="file" id="uploadImage" accept="image/*" onchange="displaySignature(event)">
+
+        <div class="button-group">
+            <button onclick="postSignature()">게시하기</button>
+        </div>
+    </div>
+
+    <script src="recognize.js"></script>
+</body>
+</html>

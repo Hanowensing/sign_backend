@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignCollector</title>
+    <link rel="stylesheet" href="first.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <div class="container">
+        <!-- 왼쪽 텍스트 컨테이너 -->
+        <div class="text-container">
+            <h1>SignCollector</h1>
+            <h2>종이에 받지 말고 휴대폰에 저장하세요!</h2>
+            <h3>사인 받을 때마다 종이가 필요했나요?</h3>
+            <p>사인 받을 때마다 종이 필요 없이</p>
+            <p>휴대폰에 받아서 간단하게 소장해보세요!</p>
+
+            <h3>사인 받았던 종이가 계속 없어진다구요?</h3>
+            <p>사인 종이 잃어버릴 걱정 없이</p>
+            <p>평생 추가하고 소장해보세요</p>
+            <p>5년, 10년 평생 저장됩니다!</p>
+            <button id="install-button" class="install-button" style="display:none;">앱 설치하기</button>
+        </div>
+
+        <!-- 오른쪽 이미지 컨테이너 -->
+        <div class="image-container">
+            <img src="sign1.png" alt="Sign 1" class="sign-image">
+            <img src="sign2.jpg" alt="Sign 2" class="sign-image">
+            <img src="sign3.jpg" alt="Sign 3" class="sign-image">
+        </div>
+    </div>
+
+    <script>
+        let deferredPrompt;
+
+        // PWA 설치 버튼 트리거
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+
+            const installButton = document.getElementById('install-button');
+            installButton.style.display = 'inline-block';
+
+            installButton.addEventListener('click', () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+
+        // 서비스 워커 등록
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch((error) => {
+                    console.log('Service Worker registration failed:', error);
+                });
+        }
+    </script>
+</body>
+</html>

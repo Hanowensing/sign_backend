@@ -1,0 +1,248 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  /* 중앙 정렬을 위한 flex 속성 추가 */
+    height: 100vh; /* 화면 높이에 맞게 전체 중앙 정렬 */
+    width: 100vw; /* ✅ 전체 너비 설정 */
+      max-width: 1200px; /* ✅ 중앙 정렬을 위한 최대 너비 설정 */
+    margin: auto; /* ✅ 좌우 여백 자동 조정 */
+}
+
+h1 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    position: absolute;  /* 왼쪽 상단에 배치 */
+    top: 10px;  /* 상단 10px */
+    left: 10px;  /* 왼쪽 10px */
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+h3{
+    font-size: 1.0rem;
+    margin-top:10px;
+    color:gray;
+}
+
+main {
+    width: 90vw;  /* 화면 너비의 90% */
+    height: 80vh; /* 화면 높이의 80% */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#savedSignContainer {
+    width: 90%;  /* main 요소의 90% */
+    height: 90%; /* main 요소의 90% */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* 100px 이상, 가능한 최대 개수 */
+    gap: 10px;  /* 사진 간격 */
+    justify-content: start; /* 왼쪽 정렬 */
+    align-content: start; /* 위쪽 정렬 */
+    overflow-y: auto; /* 스크롤 허용 */
+    border: 2px solid black; /* 디버깅용 */
+    padding: 10px; /* 내부 여백 추가 */
+}
+.sign-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ✅ 3개씩 배치 */
+    gap: 15px; /* ✅ 간격 추가 */
+    max-width: 90%;
+    width: 100%; /* ✅ 부모 요소 크기와 동일하게 맞춤 */
+    margin: 20px auto;
+    padding: 10px;
+    justify-content: center; /* 📌 중앙 정렬 */
+}
+/* 프로필 위치를 왼쪽 상단에 고정 */
+.user-profile {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-img {
+    width: 40px;      /* 고정된 크기 */
+    height: 40px;     /* 고정된 크기 */
+    border-radius: 50%;  /* 원형으로 만들기 */
+    margin-right: 10px;
+    object-fit: cover;  /* 이미지 비율을 유지하면서 잘라내기 */
+}
+
+
+/* 로그아웃 버튼 */
+.logout-btn {
+    position: absolute;   /* 프로필 바로 아래에 고정 */
+    top: 50px;
+    right: 0;
+    padding: 12px 20px;
+    font-size: 14px;
+    background-color: white;  /* 배경색 흰색 */
+    color: #333;  /* 글자색 어두운 회색 */
+    border: 2px solid #ccc; /* 테두리 추가 */
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    transition: all 0.3s ease-in-out;
+    display: none; /* 기본적으로 숨김 */
+}
+
+.logout-btn:hover {
+    background-color: #f8f8f8; /* 호버 시 살짝 회색 */
+    border-color: #999;
+}
+
+/* "+" 버튼 */
+.plus-btn {
+    position: absolute;
+    top: 10px;
+    right: 90px;
+    font-size: 40px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+/* 액션 메뉴 */
+.action-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.action-menu .action-btn {
+    display: block;
+    border:none;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+.action-menu .action-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* ✅ 액자 스타일 */
+.sign-card {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px; /* ✅ 둥근 모서리 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 50px; /* ✅ 액자의 최대 너비 제한 */
+    height: 50px; /* 📌 카드 높이 일정 */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sign-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.sign-image {
+    width: 70px; /* 📌 이미지 크기 일정하게 */
+    height: 70px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+
+.no-sign-message {
+    font-size: 1.5rem;
+    color: gray;
+    text-align: center;
+}
+
+/* 새로 추가: sign-wrapper 스타일 (각 사인 카드와 삭제 버튼을 묶는 랩퍼) */
+.sign-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 📌 수평 정렬 */
+    width: 100%;      /* 모든 카드의 너비를 통일 (필요에 따라 조정) */
+    margin: 10px;      /* 카드 간의 여백 추가 */
+}
+
+/* 기존 .delete-btn 스타일 내 width 수정 (원래 80%였다면 50%로 변경) */
+.delete-btn {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+
+/* 삭제 버튼 호버 효과는 그대로 */
+.delete-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* ✅ 반응형 디자인 (모바일 600px 이하) */
+@media screen and (max-width: 600px) {
+    .sign-container {
+        grid-template-columns: repeat(3, minmax(70px, 1fr)); /* 📌 모바일에서 3개 유지 */
+        gap: 3px; /* 📌 간격 더 줄이기 */
+        justify-content:center;
+    }
+
+    .sign-card {
+        max-width: 80px;
+    }
+}
+
+/* 📌 반응형 디자인 (패드) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .sign-container {
+        grid-template-columns: repeat(9, minmax(70px, 1fr)); /* 📌 패드에서 9개씩 */
+        gap: 5px;
+        justify-content:center;
+    }
+
+    .sign-card {
+        max-width: 90px;
+    }
+}
+
+/* 📌 반응형 디자인 (데스크탑) */
+@media screen and (min-width: 1024px) {
+    .sign-container {
+        grid-template-columns: repeat(9, minmax(90px, 1fr)); /* 📌 데스크탑에서 9개 유지 */
+        gap: 8px;
+        justify-content:center;
+    }
+
+    .sign-card {
+        max-width: 100px;
+    }
+}

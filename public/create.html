@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Sign</title>
+    <link rel="stylesheet" href="create.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <main>
+        <input type="text" id="signatureTitle" placeholder="Title (ex. BTS RM's Sign)">
+
+        <!-- ✅ 추가된 UI -->
+        <div class="toolbar">
+            <label>Color: <input type="color" id="penColor" value="#000000"></label>
+            <label>Size: <input type="range" id="penSize" min="1" max="10" value="4"></label>
+            <button class="btn" id="undo">Undo</button>
+        </div>
+
+        <!-- ✅ 사인 캔버스 -->
+        <canvas id="signatureCanvas"></canvas>
+
+        <div class="button-container">
+            <button class="btn" id="clearCanvas">Clear</button>
+            <button class="btn" id="saveSign">Save Sign</button>
+        </div>
+
+        <a href="mainpage.html" class="back-button">Back</a>
+    </main>
+
+    <script src="create.js"></script>
+</body>
+</html>

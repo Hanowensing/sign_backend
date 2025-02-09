@@ -1,0 +1,6 @@
+{
+  "appId": "com.SignApp.app",
+  "appName": "Sign App",
+  "webDir": "sign",
+"bundledWebRuntime": false
+}

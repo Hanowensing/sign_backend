@@ -1,0 +1,128 @@
+/* ✅ 전체 화면 설정 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* ✅ 최소 높이를 100vh로 설정하여 화면을 꽉 채움 */
+    width: 100vw;
+    margin: 0;
+    background-color: white;
+}
+
+/* ✅ 컨테이너 (중앙 정렬 + 크기 조정) */
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 80vw;
+    height: 80vh;
+    max-width: 1000px;
+    min-width: 350px; /* ✅ 너무 작아지지 않도록 설정 */
+    max-height: 800px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; /* ✅ 균형 있는 정렬 */
+}
+
+/* ✅ 캔버스 스타일 */
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 2px solid black;
+    background: white;
+    width: 100%;
+    height: 60%;
+    max-height: 500px;
+}
+
+/* ✅ 입력 필드 & 버튼 스타일 */
+input, button {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 18px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: white;
+    text-align: center;
+}
+
+/* ✅ 버튼 스타일 */
+button {
+    color: black;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ 서명 입력 필드 */
+#signatureTitle {
+    border: 2px solid black;
+    font-size: 16px;
+    padding: 10px;
+    background: white;
+    text-align: center;
+}
+
+/* ✅ 제목 스타일 */
+h3 {
+    margin-top: -10px;
+    font-size: 1.2rem;
+    color: gray;
+}
+
+/* ✅ 태블릿 반응형 디자인 */
+@media screen and (max-width: 1025px) {
+    .container {
+        width: 90%;
+        min-height: 85vh;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    canvas {
+        width: 90%;
+        height: 500px;
+    }
+
+    input[type="file"],
+    button {
+        font-size: 1.1rem;
+        padding: 10px 18px;
+    }
+}
+
+/* ✅ 모바일 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    body {
+        margin-top: 0;
+    }
+
+    .container {
+        width: 95vw;
+        height: auto;
+        padding: 15px;
+        min-height: 90vh;
+    }
+
+    canvas {
+        width: 100%;
+        height: 250px;
+    }
+
+    input, button {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}

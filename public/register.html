@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독서실 가입하기</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f9ff;
+            padding: 15px;
+        }
+
+        .back-button {
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #3498db;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #bdc3c7;
+            font-size: 14px;
+            background: transparent;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-bottom-color: #3498db;
+        }
+
+        input::placeholder {
+            color: #95a5a6;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .login-button:hover {
+            background-color: #2980b9;
+        }
+
+        #checkIdBtn {
+            width: auto;
+            padding: 6px 12px;
+            background-color: #95a5a6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        #checkIdBtn:hover {
+            background-color: #7f8c8d;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: calc(50% - 25px);
+            height: 1px;
+            background-color: #bdc3c7;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .divider span {
+            background-color: #f5f9ff;
+            padding: 0 12px;
+            color: #95a5a6;
+            font-size: 12px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .g_id_signin {
+            transform: scale(0.9);
+            transform-origin: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">←</a>
+        <h1>계정</h1>
+        
+        <!-- 기존 회원가입 폼 -->
+        <form id="registerForm">
+            <div class="form-group">
+                <input type="text" id="userId" placeholder="아이디">
+                <button type="button" id="checkIdBtn">중복확인</button>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="비밀번호">
+            </div>
+            <div class="form-group">
+                <input type="password" id="passwordConfirm" placeholder="비밀번호 확인">
+            </div>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="이름">
+            </div>
+            <div class="form-group">
+                <input type="text" id="nickname" placeholder="별명">
+            </div>
+            <div class="form-group">
+                <input type="text" id="studentId" placeholder=생년월일>
+            </div>
+            <div class="form-group">
+                <input type="text" id="department" placeholder="이메일">
+            </div>
+            <button type="submit" class="login-button">등록하기</button>
+        </form>
+
+        <div class="divider">
+            <span>또는</span>
+        </div>
+
+        <!-- 소셜 로그인 버튼들 -->
+        <div class="social-buttons">
+            <button onclick="location.href='google-signup.html'" class="login-button" style="background-color: white; color: #757575; border: 1px solid #dadce0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google" style="width: 18px; height: 18px;">
+                Google 계정으로 로그인
+            </button>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

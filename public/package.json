@@ -1,0 +1,27 @@
+{
+  "name": "sign",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hanowensing/sign.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Hanowensing/sign/issues"
+  },
+  "homepage": "https://github.com/Hanowensing/sign#readme",
+  "dependencies": {
+    "@capacitor/android": "^7.0.1",
+    "@capacitor/ios": "^7.0.1",
+    "dotenv": "^16.4.7",
+    "node-fetch": "^3.3.2"
+  }
+}
