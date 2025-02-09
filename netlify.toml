@@ -1,3 +1,6 @@
+[build]
+  publish = "public"  # Netlify가 public 폴더를 정적 파일 루트로 인식하도록 설정
+
 [[redirects]]
   from = "/"
   to = "/first.html"
