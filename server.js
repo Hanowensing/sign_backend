@@ -14,14 +14,20 @@ const allowedOrigins = [
 
 // ✅ CORS 옵션 설정
 const corsOptions = {
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 };
 
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+app.options("*", cors()); // ⚠️ 이 부분을 수정
 
 // ✅ 환경 변수에서 Google OAuth 설정 불러오기
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
@@ -46,7 +52,7 @@ app.get("/login", (req, res) => {
 });
 
 // ✅ Google OAuth 콜백: Authorization Code를 받아 Access Token 요청
-app.post("/auth/google", async (req, res) => {
+app.post("/auth/google", cors(corsOptions), async (req, res) => {
     const { code } = req.body;
 
     if (!code) {
@@ -54,7 +60,6 @@ app.post("/auth/google", async (req, res) => {
     }
 
     try {
-        // 🔥 Google 서버에 Authorization Code를 보내서 Access Token 요청
         const tokenResponse = await axios.post(
             "https://oauth2.googleapis.com/token",
             new URLSearchParams({
@@ -83,6 +88,7 @@ app.post("/auth/google", async (req, res) => {
         res.status(500).json({ error: "서버 오류", details: error.response ? error.response.data : error.message });
     }
 });
+
 
 // ✅ 서버 실행 (Render에서 자동으로 PORT 할당)
 const PORT = process.env.PORT || 3000;
